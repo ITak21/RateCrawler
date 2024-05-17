@@ -25,11 +25,11 @@
     </form>
 </div>
 <div class="container">
-    <div class="company-title">기업명: <span th:text="${company}"></span></div>
+    <div class="company-title">기업명: <span th:if="${companyInfo.error != null}" th:text="${companyInfo.error}"></span><span th:unless="${companyInfo.error != null}" th:text ="${company}"></span></div>
     <div class="ratings">
         <div class="rating-box">
             <div class="company-name">블라인드</div>
-            <div class="rating">⭐ <span th:text="${star}"></span></div>
+            <div class="rating">⭐ <span th:text="${companyInfo.star}"></span></div>
             <button class="link-btn">링크</button>
         </div>
         <div class="rating-box">
@@ -40,7 +40,12 @@
     </div>
     <div class="company-info">
         <div class="info-title">기업 정보</div>
-        <div class="info-content"></div>
+        <div class="info-content">
+            <div class="box"  th:text="${companyInfo.link}"></div>
+            <div class="box"  th:text="${companyInfo.category}"></div>
+            <div class="box"  th:text="${companyInfo.location}"></div>
+            <div class="box full-width" th:text="${companyInfo.about}"></div>
+        </div>
     </div>
 </div>
 <div class="footer">
