@@ -10,11 +10,16 @@ import org.jsoup.select.Elements;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 import java.io.IOException;
 import java.time.LocalDateTime;
 
 @Service
 public class CrawlerService {
+    private static final Logger logger = LoggerFactory.getLogger(CrawlerService.class);
+
     @Autowired
 
     private SearchRepository searchRepository;
@@ -56,14 +61,16 @@ public class CrawlerService {
 
             if (!star.equals("N/A") && !link.equals("No link available") && !category.equals("No category available") && !location.equals("No location available") && !about.equals("No about available")) {
                 searchRepository.save(searchEntity);
+                logger.info("Data saved for company: {}", company);
             } else {
                 companyInfoDTO.setError("블라인드에 유효한 정보가 없습니다.");
+                logger.warn("No valid data found for company: {}", company);
             }
 
 
         } catch (IOException e) {
-            e.printStackTrace();
-            companyInfoDTO.setError("정확한 기업명을 입력해주세요.");
+            logger.error("Error fetching data for company: {}", company, e);
+            companyInfoDTO.setError("블라인드에 정보가 없습니다.");
 
         }
         return companyInfoDTO;
@@ -78,7 +85,7 @@ public class CrawlerService {
 
             return star2;
         } catch (IOException e) {
-            e.printStackTrace();
+            logger.error("Error fetching data from 잡플래닛 for company: {}", company, e);
             return "잡플래닛에 정보가 없습니다.";
         }
     }
