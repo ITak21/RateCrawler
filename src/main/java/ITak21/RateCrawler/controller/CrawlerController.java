@@ -26,6 +26,10 @@ public class CrawlerController {
     public String joinPage() {
         return "join";
     }
+    @GetMapping("/login")
+    public String loginPage() {
+        return "login";
+    }
 
     @GetMapping("/crawl")
     public String crawl(@RequestParam("company") String company, HttpSession session, Model model) {

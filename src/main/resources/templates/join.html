@@ -14,7 +14,7 @@
 <div class="header">
     <div class="logo">RateCrawler</div>
     <div class="auth">
-        <a href="#">Login</a>
+        <a href="/login">Login</a>
         <a href="/join">Join</a>
     </div>
 </div>
@@ -96,6 +96,7 @@
             const result = await response.text();
             // 팝업 메시지로 결과 표시
             alert(result);
+            window.location.href = '/login';
         } catch (error) {
             console.error('There has been a problem with your fetch operation:', error);
             alert('회원가입 중 오류가 발생했습니다. 다시 시도해주세요.');
