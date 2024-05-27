@@ -4,6 +4,9 @@ import ITak21.RateCrawler.dto.CompanyInfoDTO;
 import ITak21.RateCrawler.service.CrawlerService;
 import jakarta.servlet.http.HttpSession;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.context.SecurityContextHolder;
+import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -15,10 +18,19 @@ public class CrawlerController {
     private CrawlerService crawlerService;
 
     @GetMapping("/")
-    public String index(HttpSession session) {
-        // 세션에 userId가 없을 경우 기본값 설정 (예시)
-        if (session.getAttribute("userId") == null) {
-            session.setAttribute("userId", "Anonymous");
+    public String index(HttpSession session,Model model) {
+        Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+        if (authentication != null && authentication.isAuthenticated()) {
+            Object principal = authentication.getPrincipal();
+            String username;
+            if (principal instanceof UserDetails) {
+                username = ((UserDetails) principal).getUsername();
+            } else {
+                username = principal.toString();
+            }
+            session.setAttribute("userId", username);
+            model.addAttribute("username", username);
+            System.out.println(username);
         }
         return "index";
     }

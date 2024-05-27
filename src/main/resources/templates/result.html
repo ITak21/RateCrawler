@@ -14,8 +14,10 @@
 <div class="header">
     <div class="logo">RateCrawler</div>
     <div class="auth">
-        <a href="/login">Login</a>
-        <a href="/join">Join</a>
+        <a th:if="${session.userId == null or session.userId == 'anonymousUser'}" href="/login">Login</a>
+        <a th:if="${session.userId != null and session.userId != 'anonymousUser'}" href="/mypage">My Page</a>
+        <a th:if="${session.userId == null or session.userId == 'anonymousUser'}" href="/join">Join</a>
+        <a th:if="${session.userId != null and session.userId != 'anonymousUser'}" href="/api/logout">Logout</a>
     </div>
 </div>
 <div class="search-bar">

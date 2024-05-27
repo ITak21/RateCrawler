@@ -41,6 +41,10 @@ public class SecurityConfig {
                         .permitAll() // 로그인 페이지 접근 허용
                 )
                 .logout((logout) -> logout
+                        .logoutUrl("/logout") // 로그아웃 URL 설정
+                        .logoutSuccessUrl("/") // 로그아웃 성공 후 리디렉션할 URL 설정
+                        .invalidateHttpSession(true) // 세션 무효화
+                        .deleteCookies("JSESSIONID") // JSESSIONID 쿠키 삭제
                         .permitAll() // 로그아웃은 누구나 접근 가능
                 )
                 .csrf(csrf -> csrf.disable()); // 필요시 CSRF 보호 비활성화
