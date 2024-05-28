@@ -69,7 +69,10 @@ body, html {
     margin-bottom: 60px;
     color: #fff;
 }
-
+.logo a{
+    text-decoration:none;
+    color: #fff;
+    }
 .search-box {
     display: flex;
     flex-direction: column;
