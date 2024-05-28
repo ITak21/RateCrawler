@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="ko" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RateCrawler - My Page</title>
+    <link rel="stylesheet" href="mypage.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Jua&family=Poetsen+One&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
+</head>
+<body>
+<div class="header">
+    <div class="logo">RateCrawler</div>
+    <div class="auth">
+        <a href="/logout">Logout</a>
+    </div>
+</div>
+
+<div class="container">
+    <div class="tabs">
+        <div class="tab active" id="interests-tab">관심</div>
+        <div class="tab" id="info-tab">내정보</div>
+    </div>
+    <div class="tab-content active" id="interests-content">
+        <h2>관심기업</h2>
+        <div class="company-list">
+            <div th:each="company : ${favoriteCompanies.content}" class="company-item">
+                <div class="company-info">
+                    <span class="company-name" th:text="${company.companyName}">회사명</span>
+                    <span class="company-category" th:text="${company.category}">회사분류</span>
+                </div>
+                <div class="company-actions">
+                    <button class="view-btn" th:onclick ="|location.href='@{'/crawl?company=' + ${company.companyName}}'|">찾아보기</button>
+                    <form th:action="@{/mypage/delete}" method="post" th:object="${company}">
+                        <input type="hidden" name="companyName" th:value="${company.companyName}" />
+                        <button type="submit" class="delete-btn"><i class="fas fa-trash-alt"></i></button>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <div class="pagination">
+            <span th:if="${favoriteCompanies.totalPages > 0}"
+                  th:each="i : ${#numbers.sequence(0, favoriteCompanies.totalPages - 1)}">
+            <a th:href="@{'/mypage?page=' + ${i}}"
+           th:text="${i + 1}"
+           th:classappend="${i == favoriteCompanies.number} ? 'active' : ''"></a>
+            </span>
+        </div>
+    </div>
+    <div class="tab-content" id="info-content">
+        <h2>내정보</h2>
+        <!-- 내정보 내용 추가 -->
+    </div>
+</div>
+
+<div class="footer">
+    <div class="footer-content">
+        <p>© 2024 RateCrawler. All rights reserved.</p>
+        <p>
+            <a href="#">Privacy Policy</a> |
+            <a href="#">Terms of Service</a> |
+            <a href="#">Contact Us</a>
+        </p>
+        <p>
+            Follow us:
+            <a href="#"><i class="fab fa-github"></i></a>
+        </p>
+    </div>
+</div>
+<script>
+    document.getElementById('interests-tab').addEventListener('click', function() {
+        document.getElementById('interests-tab').classList.add('active');
+        document.getElementById('info-tab').classList.remove('active');
+        document.getElementById('interests-content').classList.add('active');
+        document.getElementById('info-content').classList.remove('active');
+    });
+
+    document.getElementById('info-tab').addEventListener('click', function() {
+        document.getElementById('info-tab').classList.add('active');
+        document.getElementById('interests-tab').classList.remove('active');
+        document.getElementById('info-content').classList.add('active');
+        document.getElementById('interests-content').classList.remove('active');
+    });
+</script>
+</body>
+</html>
