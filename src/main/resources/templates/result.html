@@ -27,7 +27,10 @@
     </form>
 </div>
 <div class="container">
-    <div class="company-title">기업명: <span th:if="${companyInfo.error != null}" th:text="${companyInfo.error}"></span><span th:unless="${companyInfo.error != null}" th:text ="${company}"></span></div>
+    <div class="company-title">기업명: <span th:if="${companyInfo.error != null}" th:text="${companyInfo.error}"></span>
+        <span th:unless="${companyInfo.error != null}" th:text ="${company}"></span>
+        <button th:if="${session.userId != null and session.userId != 'anonymousUser'}" class="favorite-btn"><i class="fas fa-heart"></i></button>
+    </div>
     <div class="ratings">
         <div class="rating-box">
             <div class="company-name">블라인드</div>

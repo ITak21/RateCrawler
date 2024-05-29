@@ -113,8 +113,41 @@ body {
     color: #333;
     text-align: center;
     font-weight: bold;
+    position: relative;
 }
 
+.favorite-btn {
+    background-color: #ff6b6b;
+    color: white;
+    border: none;
+    width: 40px; /* 원의 크기 설정 */
+    height: 40px; /* 원의 크기 설정 */
+    border-radius: 50%;
+    cursor: pointer;
+    position: absolute;
+    right: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background-color 0.3s, color 0.3s;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.favorite-btn i {
+    font-size: 20px; /* 하트 아이콘 크기 키우기 */
+    color: white;
+}
+
+.favorite-btn:hover {
+    background-color: white;
+    color: #ff6b6b;
+}
+
+.favorite-btn:hover i {
+    color: #ff6b6b;
+}
 .ratings {
     display: flex;
     justify-content: space-between;
