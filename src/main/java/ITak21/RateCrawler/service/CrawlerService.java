@@ -79,10 +79,24 @@ public class CrawlerService {
     public String fetchStar2(String company) {
         try {
             String jobple = "https://www.google.com/search?q=잡플래닛+";
-            Document doc2 = Jsoup.connect(jobple+company).get();
-            Elements elements = doc2.select(".fG8Fp.uo4vr span:nth-child(2)");
-            String star2=elements.text().substring(4,7);
+            Document doc2 = Jsoup.connect(jobple + company).get();
+            Elements elements = doc2.select(".fG8Fp.uo4vr span:nth-of-type(2)");
 
+            if (elements.isEmpty()) {
+                // 요소가 존재하지 않는 경우
+                logger.warn("No elements found for the specified selector.");
+                return "잡플래닛에 정보가 없습니다.";
+            }
+
+            String elementText = elements.text();
+
+            if (elementText.length() < 7) {
+                // 텍스트 길이가 충분하지 않은 경우
+                logger.warn("Element text is too short: {}", elementText);
+                return "잡플래닛에 정보가 없습니다.";
+            }
+
+            String star2 = elementText.substring(4, 7);
             return star2;
         } catch (IOException e) {
             logger.error("Error fetching data from 잡플래닛 for company: {}", company, e);
