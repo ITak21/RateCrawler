@@ -9,6 +9,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Jua&family=Poetsen+One&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"  />
+    <script  src="http://code.jquery.com/jquery-latest.min.js"></script>
 </head>
 <body>
 <div class="header">
@@ -67,5 +68,28 @@
         </p>
     </div>
 </div>
+<script th:inline="javascript">
+    $(document).ready(function() {
+        $('.favorite-btn').click(function() {
+            var companyName = /*[[${company}]]*/ '';
+
+
+            $.ajax({
+                url: '/api/addFavorite',
+                type: 'POST',
+                data: {
+                    companyName: companyName
+
+                },
+                success: function(response) {
+                    alert("관심 목록에 추가되었습니다!");
+                },
+                error: function(xhr, status, error) {
+                    alert("관심 목록 추가 중 오류 발생: " + xhr.responseText);
+                }
+            });
+        });
+    });
+</script>
 </body>
 </html>

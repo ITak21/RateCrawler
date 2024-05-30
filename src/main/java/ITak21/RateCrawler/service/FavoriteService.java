@@ -1,6 +1,7 @@
 package ITak21.RateCrawler.service;
 
 import ITak21.RateCrawler.dto.FavoriteCompanyDTO;
+import ITak21.RateCrawler.entity.FavoriteEntity;
 import ITak21.RateCrawler.repository.FavoriteRepository;
 import jakarta.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -20,5 +21,12 @@ public class FavoriteService {
     @Transactional
     public void deleteFavorite(String userId, String favName) {
         favoriteRepository.deleteByUserIdAndFavName(userId, favName);
+    }
+    @Transactional
+    public void addFavorite(String userId, String favName) {
+        FavoriteEntity favorite = new FavoriteEntity();
+        favorite.setUserId(userId);
+        favorite.setFavName(favName);
+        favoriteRepository.save(favorite);
     }
 }
