@@ -6,6 +6,8 @@ import ITak21.RateCrawler.service.UserService;
 import jakarta.servlet.http.HttpServletResponse;
 import jakarta.servlet.http.HttpSession;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.io.IOException;
@@ -39,6 +41,22 @@ public class UserController {
         favoriteService.addFavorite(userId, companyName);
         return "Success";
     }
+    @PostMapping("/checkPassword")
+    public ResponseEntity<Void> checkPassword(@RequestBody UserDTO userDTO, HttpSession session) {
+        String userId = (String) session.getAttribute("userId");
+        boolean isValid = userService.checkPassword(userId, userDTO.getPassword());
+        if (isValid) {
+            return ResponseEntity.ok().build();
+        } else {
+            return ResponseEntity.status(401).build();
+        }
+    }
 
+    @PostMapping("/deleteAccount")
+    public boolean deleteAccount(HttpSession session) {
+        String userId = (String) session.getAttribute("userId");
+        session.invalidate();  // 세션 무효화
+        return userService.deleteAccount(userId);
+    }
 
 }

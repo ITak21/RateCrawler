@@ -150,6 +150,85 @@ body {
     border-radius: 5px;
 }
 
+#delete-account-section {
+    margin-top: 20px;
+}
+#delete-account-btn {
+    background-color: #FF6347; /* 빨간색 버튼 */
+    font-family: "Jua", sans-serif;
+    margin: 0 auto;
+    margin-bottom: 15px;
+    display: flex;
+    border-radius: 5px;
+    padding: 8px 16px;
+    border: none;
+    cursor: pointer;
+    color: #fff;
+
+}
+#delete-account-btn:hover{
+    opacity: 0.8;
+}
+.info-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color:rgba(255, 255, 255, 0.9);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+    width: 90%;
+    max-width: 400px;
+    margin: 20px auto 10px auto;
+}
+
+h2 {
+    color: #333;
+    margin-bottom: 20px;
+}
+
+.password-section {
+    margin-bottom: 15px;
+    width: 50%;
+
+}
+
+.password-section label {
+    display: block;
+    margin-bottom: 5px;
+    margin-top: 20px;
+    color: #333;
+}
+
+.password-section input {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    box-sizing: border-box; /* Ensure padding and border are included in the width */
+}
+
+.password-section .submit-btn {
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    border-radius: 5px;
+    text-align: center;
+    text-decoration: none;
+    display: block;
+    font-size: 16px;
+    margin: 0 auto;
+    width: 50%; /* Make the button width equal to the input width */
+    box-sizing: border-box; /* Ensure padding and border are included in the width */
+    font-family: "Jua", sans-serif;
+    margin-top: 10px;
+}
+
+.submit-btn:hover {
+    background-color: #45a049;
+}
 
 .footer {
     background-color: #353535;

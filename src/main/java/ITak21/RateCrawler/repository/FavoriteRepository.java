@@ -15,4 +15,5 @@ public interface FavoriteRepository extends JpaRepository<FavoriteEntity, Long> 
     Page<FavoriteCompanyDTO> findFavoriteCompanies(@Param("userId") String userId, Pageable pageable);
 
     void deleteByUserIdAndFavName(String userId, String favName);
+    void deleteByUserId(String userId);
 }
