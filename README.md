@@ -24,3 +24,4 @@
 
 
 ## DB ERD
+<img width="700" src=https://github.com/ITak21/RateCrawler/assets/118645678/6e46be30-5ccb-4849-9a36-0c1f56af1d63>
