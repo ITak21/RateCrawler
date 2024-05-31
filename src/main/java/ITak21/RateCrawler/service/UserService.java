@@ -36,7 +36,7 @@ public class UserService {
         userRepository.save(user);
 
         // 회원가입 완료 메시지 반환
-        return "회원가입 성공";
+        return "회원가입이 완료되었습니다.";
     }
     public boolean checkPassword(String userId, String rawPassword) {
         Optional<UsersEntity> optionalUser = userRepository.findById(userId);
