@@ -154,7 +154,7 @@ body {
     margin-top: 20px;
 }
 #delete-account-btn {
-    background-color: #FF6347; /* 빨간색 버튼 */
+    background-color: #FF6347;
     font-family: "Jua", sans-serif;
     margin: 0 auto;
     margin-bottom: 15px;
@@ -205,7 +205,7 @@ h2 {
     border: 1px solid #ccc;
     border-radius: 5px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    box-sizing: border-box; /* Ensure padding and border are included in the width */
+    box-sizing: border-box;
 }
 
 .password-section .submit-btn {
@@ -220,8 +220,8 @@ h2 {
     display: block;
     font-size: 16px;
     margin: 0 auto;
-    width: 50%; /* Make the button width equal to the input width */
-    box-sizing: border-box; /* Ensure padding and border are included in the width */
+    width: 50%;
+    box-sizing: border-box;
     font-family: "Jua", sans-serif;
     margin-top: 10px;
 }

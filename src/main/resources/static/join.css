@@ -83,7 +83,7 @@ h2 {
     border: 1px solid #ccc;
     border-radius: 5px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    box-sizing: border-box; /* Ensure padding and border are included in the width */
+    box-sizing: border-box;
 }
 
 .form-group .submit-btn {
@@ -98,8 +98,8 @@ h2 {
     display: block;
     font-size: 16px;
     margin: 0 auto;
-    width: 100%; /* Make the button width equal to the input width */
-    box-sizing: border-box; /* Ensure padding and border are included in the width */
+    width: 100%;
+    box-sizing: border-box;
     font-family: "Jua", sans-serif;
 }
 
