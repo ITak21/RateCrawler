@@ -69,7 +69,7 @@ public class CrawlerService {
 
 
         } catch (IOException e) {
-            logger.error("Error fetching data for company: {}", company, e);
+            logger.error("Error fetching data from 블라인드 for company: {}", company, e);
             companyInfoDTO.setError("블라인드에 정보가 없습니다.");
 
         }
