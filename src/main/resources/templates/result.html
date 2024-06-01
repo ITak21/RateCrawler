@@ -36,12 +36,12 @@
         <div class="rating-box">
             <div class="company-name">블라인드</div>
             <div class="rating">⭐ <span th:text="${companyInfo.star}"></span></div>
-            <button class="link-btn">링크</button>
+            <button class="link-btn" th:onclick ="|location.href='@{'https://www.teamblind.com/kr/company/' + ${company}}'|">링크</button>
         </div>
         <div class="rating-box">
             <div class="company-name">잡플래닛</div>
             <div class="rating">⭐ <span th:text="${star2}"></span></div>
-            <button class="link-btn">링크</button>
+            <button class="link-btn" th:onclick ="|location.href='@{'https://www.jobplanet.co.kr/search?query=' + ${company}}'|">링크</button>
         </div>
     </div>
     <div class="company-info">
