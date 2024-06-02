@@ -33,4 +33,13 @@
 - 관심 기업 추가시 기업명과 회원 아이디가 저장된다.
 
 ## 화면 구성 📺
+| 메인 페이지(초기 화면)  |  로그인 페이지   |
+| :-------------------------------------------: | :------------: |
+| <img width="329" src="images/RateCrawler메인화면.JPG">|  <img width="329" src="images/RateCrawler로그인화면.JPG">|  
+| 회원가입 페이지  |   검색결과 페이지   |  
+| <img width="329" src="images/RateCrawler회원가입화면.JPG">| <img width="329" src="images/RateCrawler검색결과화면.JPG">|
+| 관심기업 페이지  |  탈퇴 전 확인 페이지  |
+| <img width="329" src="images/RateCrawler관심기업화면.JPG">| <img width="329" src="images/RateCrawler탈퇴전확인화면.JPG">|
+| 회원탈퇴 페이지 |
+| <img width="329" src="images/RateCrawler회원탈퇴화면.JPG">|
 
