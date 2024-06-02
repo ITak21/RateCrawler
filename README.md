@@ -2,7 +2,9 @@
 
 
 # RateCrawler
-> 해당 프로젝트는 spring framework, postgreSQL로 개발하였습니다.
+> 해당 프로젝트는 java21, spring framework(3.2.5), postgreSQL, Figma로 개발하였습니다.
+> 
+> [Figma 디자인 바로가기](https://www.figma.com/design/HFVD8qyDk6Y1S8n6KZml1k/RateCrawler?m=dev&t=XQEXMLfl1hPNKd3y-1)
 
 ## 제작기간
 >2024.05.12 ~ 2024.05.31 (19일)
@@ -25,3 +27,10 @@
 
 ## DB ERD
 <img width="700" src=https://github.com/ITak21/RateCrawler/assets/118645678/6e46be30-5ccb-4849-9a36-0c1f56af1d63>
+
+- 회원 정보를 저장한다.
+- 검색시 기업명과 기업 분류를 저장한다.
+- 관심 기업 추가시 기업명과 회원 아이디가 저장된다.
+
+## 화면 구성 📺
+
